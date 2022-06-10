@@ -16,12 +16,12 @@ public class LoginBean implements Serializable {
 	private String nome;
 	private String senha;
 	
-	@PostConstruct
+	@PostConstruct // @PostConstruct tem que ser publica e ter um retorno do tipo void
 	public void onCreate() {
 		System.out.println("Bean criado");
 	}
 	
-	@PreDestroy
+	@PreDestroy //@PreDestroy ciclo de vida de um bean gerenciado pelo CDI 
 	public void onDestroy() {
 		System.out.println("Bean será Destruido");
 	}
