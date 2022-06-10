@@ -10,29 +10,33 @@
 	
 <h:head>
 	<meta http-equi="Content=Type" content="text/html; charset=ISO-8859-1"/>
-	<title>Cadastro de Produtos</title>
+	<title> Mercado Assunção</title>
 </h:head>
 <script>
 
 //Fazendo a validação dos campos
 		function verificarCampos(){
-			//Variáveis recebendo o valor das variáveis da classe "Despesas"
+	
+			//tá recebendo  o valor das variáveis da classe "Despesas"
+			
 			var data = document.getElementById("f:data").value;
 			var descricao = document.getElementById("f:descricao").value;
 			var valor = document.getElementById("f:valor").value;
-		//Laço para validar se algum campo estiver vazio, irar mostrar um alerta na tela
-			if(data ==""){
-				alert("Data não Preenchida");
+			
+		//tá fazendo a validação e quando os valores não forem preenchidos ira mostrar um alerta na tela
+			
+		if(data ==""){
+				alert("Data não foi Preenchida");
 				return false;
 				
 			}else{
 				if(descricao ==""){
-					alert("Descrição não Preenchido");
+					alert("Descrição não foi  Preenchido");
 					return false;
 				}else{
 					
 					if(valor ==""){
-					alert("Valor não Preenchido");
+					alert("Valor não foi Preenchido");
 					return false;}
 					
 					
@@ -43,13 +47,17 @@
 			return true;
 		}	
 	</script>
+	
 <body>
+
+
 <ui:composition template="/template.xhtml">
-<ui:param name="titulo" value="..:: CASINO ::..">
+<ui:param name="titulo" value="Mercado Assunção">
 </ui:param>
 
 
-
+	
+	<!--  As informações dos usuários vão ser enviadas para as variáveis temporarias "data1, desc1, valor1" que recebem as infomações do usuário e faz a ligação do Bean ao objeto -->
 	
 	<ui:define name="conteudo">
 	
@@ -60,25 +68,47 @@
 	<h:panelGrid>
 	
 	<h:column>
-	<h:outputText value="Data do Jogo"></h:outputText>
+	<h:outputText value="Data da Compra"></h:outputText>
 	<br/>
 	<h:inputText value="#{tabela.data1}" id="data"></h:inputText>
 	</h:column>
 	
+	
+	<!-- Coloca Aqui opção que faz escolher os produtos já definidos -->
+	
+	
+
+	<h3>Escolha um Produto:</h3>
+	
 	<h:column>
-	<h:outputText value="Jogo apostado"></h:outputText>
+	<h:outputText value="Produto"></h:outputText>
 	<br/>
 	<h:inputText value="#{tabela.desc1}" id="descricao"></h:inputText>
 	</h:column>
 	
+	
+	
+	
 	<h:column>
-	<h:outputText value="Valor da aposta"></h:outputText>
+	<h:outputText value="Valor da Compra"></h:outputText>
 	<br/>
 	<h:inputText value="#{tabela.valor1}" id="valor"></h:inputText>
 	</h:column>
 	
-	<!-- Envia  Formulário -->
+	
+
+
+
+	
+	<!--Termina aqui formulário para a pessoa essolher os produtos já definidos -->
+	
+
+	<!-- Para enviar o Formulário -->
+	
 	<h:commandButton value="Inserir" action="#{tabela.inserir(tabela.data1,tabela.desc1,tabela.valor1)}" onclick="return verificarCampos()"></h:commandButton>
+	
+
+	
 	</h:panelGrid>
 	</h:panelGroup>
 	
@@ -87,24 +117,28 @@
 			
 			<tr>
 			<th class="cabecalho" colspan="5" >
-			Dados da Compra
+			
+			Histórico de Compras
+			
 			</th>
 			</tr>
 			
 			
 			<tr>
 			
-			<th class="cabecalho">ID do Produto</th>
+			<th class="cabecalho">ID</th>
 			<th class="cabecalho">Data da Compra</th>
 			<th class="cabecalho">Produto</th>
 			<th class="cabecalho">Valor do Produto</th>
-			<th class="cabecalho">Operação</th>
+			<th class="cabecalho">Descrição</th>
 						
 			</tr>
-			<!-- Quando adicionarmos um objeto, o repeact faz com que se repets tudo que está dentro do "repeat" -->
+		
+		
 			<ui:repeat value="#{tabela.despesas}" var="d" varStatus="st">
 			
 		<tr>
+				<!--  "edit"= falso, terá um outputText se "edit"= true, terá um inputText-->
 				
 				<td class="colNumero" colspan="1">#{st.index +1}</td>
 				<td class="colData" colspan="1">
@@ -112,9 +146,11 @@
 				<h:inputText value ="#{d.data}" rendered = "#{d.edit}"/>
 				</td>
 				
-				<td class="colDesc">
+
+				 <td class="colDesc">
 				<h:outputText value ="#{d.descricao}" rendered = "#{!d.edit}"/>
 				<h:inputText value ="#{d.descricao}" rendered = "#{d.edit}"/></td>
+
 				
 				<td class="colValor">
 				<h:outputText value ="#{d.valor}" rendered = "#{!d.edit}">
@@ -139,7 +175,8 @@
 		</h:panelGroup>
 		<br/>
 		
-		<!-- Valida se há itens dentro da tabela-->
+		<!-- Valida se há informações dentro da tabela -->
+		
 		<h:panelGroup rendered="#{tabela.despesas.size() == 0}">
 		<h:outputText value="Não cadastrado" styleClass="message" ></h:outputText>
 		</h:panelGroup>
@@ -147,5 +184,7 @@
 	</h:form>
 	</ui:define>
 </ui:composition>
+
+
 </body>
 </html>

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 //Método que faz a união/junção das tabelas
+
 @Entity
 public class Produtos {
 	
@@ -12,6 +13,7 @@ public class Produtos {
 	private Integer id;
 	private String nome;
 	private Double valor;
+	
 	public Integer getId() {
 		return id;
 	}

@@ -32,7 +32,7 @@ public class TabelaBean implements Serializable{
 	Boolean a = false; 
 
 	private Despesas despesas1;
-	//
+	
 	@EJB
 	private ComandosBean comandosBean;
 

@@ -22,8 +22,7 @@ public class FormBean implements Serializable {
 	
 	@EJB
 	private ComandosBean comandosBean;
-
-	//FacesCotext é usado para gravar todos os eventos que acontece na tela. Ex: Cliques, Mensagens e etc.
+	
 	@Inject
 	private FacesContext context;
 	
