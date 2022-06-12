@@ -13,14 +13,17 @@ import br.com.senai.Naara.application.model.Despesas;
 import br.com.senai.Naara.jpa.ejbbean.ComandosBean;
 
 
-@SuppressWarnings("serial") 
-@Named("tabela")
-@SessionScoped
-public class TabelaBean implements Serializable{
+@SuppressWarnings("serial") //é uma notação que serve para impedir o compilador de emitir algumas advertências.	
+@Named("tabela") //É usado parfa fazer a Inversão de Controle e Injeção de Dependências.
+@SessionScoped // permite navegar para uma outra página, e abrir a mesma sessão em uma segunda aba do navegador.
+
+public class TabelaBean implements Serializable{ // O implementa Serializable basicamente serve para habilitar que um objeto possa de uma determinada classe ter seu estado persistente pela API padrão do java
 	
-	private List<Despesas> despesas = new ArrayList<>();
 	
 	
+	private List<Despesas> despesas = new ArrayList<>(); //arrayList serve para conter uma lista de objetos
+	
+	//Declarando variáveis
 	private String user;
 	private String senha;
 	
@@ -33,9 +36,12 @@ public class TabelaBean implements Serializable{
 
 	private Despesas despesas1;
 	
-	@EJB
+	@EJB //Diz respeito aquele que vai fazer a conexão com o Banco de Dados
 	private ComandosBean comandosBean;
 
+	
+	// definindo o user e a senha do login
+	
 	public String doLogin() {
 		
 		if("naara".equals(user) && "123".equals(senha)) {
@@ -43,6 +49,8 @@ public class TabelaBean implements Serializable{
 		}
 		return null;
 	}
+	
+	//Getters e setters das variáveis
 	
 	public String getUser() {
 		return user;
@@ -108,7 +116,7 @@ public class TabelaBean implements Serializable{
 		
 	}
 	
-	
+	//aplicando as funções inserir,excluir,editar,gravar
 	
 	public String inserir(String data,String desc,Double Valor) {
 		
