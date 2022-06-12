@@ -10,33 +10,33 @@
 	
 <h:head>
 	<meta http-equi="Content=Type" content="text/html; charset=ISO-8859-1"/>
-	<title> Mercado Assunção</title>
+	<title> Mercado AssunÃ§Ã£o</title>
 </h:head>
 <script>
 
-//Fazendo a validação dos campos
+//Fazendo a validaÃ§Ã£o dos campos
 		function verificarCampos(){
 	
-			//tá recebendo  o valor das variáveis da classe "Despesas"
+			//tÃ¡ recebendo  o valor das variÃ¡veis da classe "Despesas"
 			
 			var data = document.getElementById("f:data").value;
 			var descricao = document.getElementById("f:descricao").value;
 			var valor = document.getElementById("f:valor").value;
 			
-		//tá fazendo a validação e quando os valores não forem preenchidos ira mostrar um alerta na tela
+		//tÃ¡ fazendo a validaÃ§Ã£o e quando os valores nÃ£o forem preenchidos ira mostrar um alerta na tela
 			
 		if(data ==""){
-				alert("Data não foi Preenchida");
+				alert("Data nÃ£o foi Preenchida");
 				return false;
 				
 			}else{
 				if(descricao ==""){
-					alert("Descrição não foi  Preenchido");
+					alert("DescriÃ§Ã£o nÃ£o foi  Preenchido");
 					return false;
 				}else{
 					
 					if(valor ==""){
-					alert("Valor não foi Preenchido");
+					alert("Valor nÃ£o foi Preenchido");
 					return false;}
 					
 					
@@ -52,12 +52,12 @@
 
 
 <ui:composition template="/template.xhtml">
-<ui:param name="titulo" value="Mercado Assunção">
+<ui:param name="titulo" value="Mercado AssunÃ§Ã£o">
 </ui:param>
 
 
 	
-	<!--  As informações dos usuários vão ser enviadas para as variáveis temporarias "data1, desc1, valor1" que recebem as infomações do usuário e faz a ligação do Bean ao objeto -->
+	<!--  As informaÃ§Ãµes dos usuÃ¡rios vÃ£o ser enviadas para as variÃ¡veis temporarias "data1, desc1, valor1" que recebem as infomaÃ§Ãµes do usuÃ¡rio e faz a ligaÃ§Ã£o do Bean ao objeto -->
 	
 	<ui:define name="conteudo">
 	
@@ -74,7 +74,7 @@
 	</h:column>
 	
 	
-	<!-- Coloca Aqui opção que faz escolher os produtos já definidos -->
+	<!-- Coloca Aqui opÃ§Ã£o que faz escolher os produtos jÃ¡ definidos -->
 	
 	
 
@@ -97,13 +97,7 @@
 	
 	
 
-
-
-	
-	<!--Termina aqui formulário para a pessoa essolher os produtos já definidos -->
-	
-
-	<!-- Para enviar o Formulário -->
+		<!-- Para enviar o FormulÃ¡rio -->
 	
 	<h:commandButton value="Inserir" action="#{tabela.inserir(tabela.data1,tabela.desc1,tabela.valor1)}" onclick="return verificarCampos()"></h:commandButton>
 	
@@ -118,7 +112,7 @@
 			<tr>
 			<th class="cabecalho" colspan="5" >
 			
-			Histórico de Compras
+			HistÃ³rico de Compras
 			
 			</th>
 			</tr>
@@ -130,7 +124,7 @@
 			<th class="cabecalho">Data da Compra</th>
 			<th class="cabecalho">Produto</th>
 			<th class="cabecalho">Valor do Produto</th>
-			<th class="cabecalho">Descrição</th>
+			<th class="cabecalho">DescriÃ§Ã£o</th>
 						
 			</tr>
 		
@@ -138,7 +132,7 @@
 			<ui:repeat value="#{tabela.despesas}" var="d" varStatus="st">
 			
 		<tr>
-				<!--  "edit"= falso, terá um outputText se "edit"= true, terá um inputText-->
+				<!--  "edit"= falso, terÃ¡ um outputText se "edit"= true, terÃ¡ um inputText-->
 				
 				<td class="colNumero" colspan="1">#{st.index +1}</td>
 				<td class="colData" colspan="1">
@@ -175,10 +169,10 @@
 		</h:panelGroup>
 		<br/>
 		
-		<!-- Valida se há informações dentro da tabela -->
+		<!-- Valida se hÃ¡ informaÃ§Ãµes dentro da tabela -->
 		
 		<h:panelGroup rendered="#{tabela.despesas.size() == 0}">
-		<h:outputText value="Não cadastrado" styleClass="message" ></h:outputText>
+		<h:outputText value="NÃ£o cadastrado" styleClass="message" ></h:outputText>
 		</h:panelGroup>
 		</center>
 	</h:form>
