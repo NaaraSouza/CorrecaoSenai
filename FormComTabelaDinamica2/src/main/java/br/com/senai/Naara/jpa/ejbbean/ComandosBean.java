@@ -6,13 +6,13 @@ import javax.persistence.PersistenceContext;
 
 import br.com.senai.Naara.application.model.Despesas;
 
-@Stateless
+@Stateless //Utilizado quando você tem uma classe que representa apenas um serviço, mas sem precisar guardar informações.
 public class ComandosBean {
 
 	//É o que gerencia o banco de Dados
 	
-		@PersistenceContext
-		private EntityManager em;
+		@PersistenceContext //é um local onde ficam armazenados os objetos (entidades) que estão sendo manipulados pelo EntityManager corrente
+		private EntityManager em; // EntityManager= Provê APIs para criar consultas, buscando objetos, sincronizando objetos, e inserindo objetos no banco de dados
 		
 		//Métodos que influenciam no Banco de Dados
 		
