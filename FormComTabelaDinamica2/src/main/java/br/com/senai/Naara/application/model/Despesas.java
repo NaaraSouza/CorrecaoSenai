@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@Entity //REFERE-SE A ENTIDADE
 public class Despesas {
 	
 //Os atributos primitivos não podem ser nulos
@@ -15,11 +15,10 @@ private Double valor;
 private Boolean edit;
 
 
-@Id
-@GeneratedValue
+@Id// PARA TRAZER UM ID AUTOMÁTICO
+@GeneratedValue // serve para falar que o campo mapeado será gerado automaticamente pelo banco de dados
+	
 private Integer id;
-
-
 
 
 public Despesas(String data, String descricao, Double valor) {
